@@ -1,0 +1,30 @@
+﻿:root {
+  background-color: #333333;
+  color: #ffffff;
+}
+:root a {
+  color: #ffffff;
+}
+:root .primary {
+  background-color: #ffbf3f;
+  color: #161616;
+}
+:root .primary:hover {
+  background-color: #e4ab38;
+}
+:root .primary:active {
+  background-color: #c99732;
+}
+:root svg {
+  fill: #ffffff;
+}
+
+.theme-white {
+  background-color: var(#333333, #ffffff);
+  color: var(#ffffff, #161616);
+}
+
+.theme-dark {
+  background-color: #333333;
+  color: #ffffff;
+}
