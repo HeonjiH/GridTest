@@ -1,0 +1,44 @@
+﻿$lang-background-color: #333333;
+$lang-color: #ffffff;
+$lang-primary: #ffbf3f;
+$lang-primary-hover: #e4ab38;
+$lang-primary-active: #c99732;
+$lang-highlight: #291f0a;
+$lang-danger: #ff0000;
+$lang-dark-color: #161616;
+
+:root {
+    background-color: $lang-background-color;
+    color: $lang-color;
+
+    a{
+        color:$lang-color;
+    }
+
+    .primary {
+        background-color: $lang-primary;
+        color: $lang-dark-color;
+
+        &:hover {
+            background-color: $lang-primary-hover
+        }
+
+        &:active {
+            background-color: $lang-primary-active;
+        }
+    }
+
+    svg{
+        fill: $lang-color;
+    }
+}
+
+.theme-white {
+    background-color: var($lang-background-color, #ffffff);
+    color: var($lang-color, #161616);
+}
+
+.theme-dark {
+    background-color: $lang-background-color;
+    color: $lang-color;
+}
