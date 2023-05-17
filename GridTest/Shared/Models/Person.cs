@@ -2,10 +2,32 @@
 {
     public class Person
     {
-        public string Id { get; set; } = string.Empty;
+        public PersonId Id { get; set; } = new();
 
+        public PersonName Name { get; set; } = new();
+
+        public string Gender { get; set; } = string.Empty;
+
+        public string Email { get; set; } = string.Empty;
+
+        public string Cell { get; set; } = string.Empty;
+
+        public string Nat { get; set; } = string.Empty;
+    }
+
+    public class PersonName
+    {
+        public string Title { get; set; } = string.Empty;
+
+        public string First { get; set; } = string.Empty;
+
+        public string Last { get; set; } = string.Empty;
+    }
+
+    public class PersonId
+    {
         public string Name { get; set; } = string.Empty;
 
-        public DateTime BirthDate { get; set; }
+        public string Value { get; set; } = Guid.NewGuid().ToString().Split("-")[0];
     }
 }
