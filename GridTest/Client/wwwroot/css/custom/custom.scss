@@ -67,6 +67,10 @@ body {
         display: flex;
         flex-direction: column;
         grid-gap: 40px;
+
+        .content {
+            
+        }
     }
 
     &.commongrid-page {
@@ -80,137 +84,166 @@ body {
 }
 
 /**QuickGrid*/
-.quickgridTable {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: IBM Plex Sans;
+.quick-grid-content {
+    height: 800px;
+    overflow: auto;
+    padding-top: 0px;
 
-    thead {
-        tr {
-            th {
-                background-color: #202020;
-                height: 48px;
-                padding: 0 1rem;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
 
-                .col-header-content {
-                    .col-title {
-                        gap: 10px;
+    &::-webkit-scrollbar-thumb {
+        background-color: #161616;
+        border-radius: 50px;
+    }
 
-                        .col-title-text {
-                            color: #fff;
-                            font-family: IBM Plex Sans;
-                            font-size: 14px;
-                            font-weight: 700;
-                            line-height: 21px;
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    .quickgridTable {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: IBM Plex Sans;
+
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+
+            tr {
+                th {
+                    background-color: #202020;
+                    height: 48px;
+                    padding: 0 1rem;
+
+                    .col-header-content {
+                        .col-title {
+                            gap: 10px;
+
+                            .col-title-text {
+                                color: #fff;
+                                font-family: IBM Plex Sans;
+                                font-size: 14px;
+                                font-weight: 700;
+                                line-height: 21px;
+                            }
+                        }
+                    }
+
+                    &.col-sort-desc {
+                        .sort-indicator {
+                            background-image: url(../../imgs/chevron.svg);
+                        }
+                    }
+
+                    &.col-sort-asc {
+                        .sort-indicator {
+                            background-image: url(../../imgs/chevron.svg);
+                            transform: rotateY('180');
                         }
                     }
                 }
+            }
+        }
 
-                &.col-sort-desc {
-                    .sort-indicator {
-                        background-image: url(../../imgs/chevron.svg);
-                    }
+        tbody {
+            tr {
+                border-bottom: 1px solid #333333;
+                background-color: #262626;
+
+                td {
+                    font-size: 14px;
+                    color: #fff;
+                    height: 48px;
+                    padding: 0 1rem !important;
                 }
 
-                &.col-sort-asc {
-                    .sort-indicator {
-                        background-image: url(../../imgs/chevron.svg);
-                        transform: rotateY('180');
-                    }
+                &:hover {
+                    background-color: #333333;
+                }
+
+                &:last-child {
+                    border: 0px;
                 }
             }
         }
     }
 
-    tbody {
-        tr {
-            border-bottom: 1px solid #333333;
-            background-color: #262626;
-
-            td {
-                font-size: 14px;
-                color: #fff;
-                height: 48px;
-                padding: 0 1rem !important;
-            }
-
-            &:hover {
-                background-color: #333333;
-            }
-
-            &:last-child {
-                border: 0px;
-            }
-        }
-    }
-}
-
-.pagination-wrapper {
-    background-color: #262626;
-    min-height: 48px;
-    border-top: 1px solid #333;
-    padding: 0 1rem;
-    font-family: IBM Plex Sans;
-    display: flex;
-    align-items: center;
-
-    .pagination-pagesize {
-        white-space: nowrap;
-        padding-right: 15px;
-        display: flex;
-        gap: 15px;
-        align-items: center;
-        font-size: 14px;
-        height: 48px;
-
-        select {
-            min-width: 50px;
-            height: 100%;
-            background-color: transparent;
-            color: #fff;
-            border: 0px;
-
-            option{
-                background-color:#262626;
-                padding:3px;
-            }
-        }
-    }
-
-    .paginator {
-        width: 100%;
+    .pagination-wrapper {
         background-color: #262626;
         min-height: 48px;
-        margin: 0px !important;
-        border-top: 0px;
-        padding: 0 !important;
-        padding-left: 15px !important;
-        border-left: 1px solid #333;
+        border-top: 1px solid #333;
+        padding: 0 1rem;
+        font-family: IBM Plex Sans;
+        display: flex;
+        align-items: center;
+        position: sticky;
+        bottom: 0px;
 
-        .pagination-text, .summary {
+        .pagination-pagesize {
+            white-space: nowrap;
+            padding-right: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
             font-size: 14px;
+            height: 48px;
+
+            select {
+                min-width: 50px;
+                height: 100%;
+                background-color: transparent;
+                color: #fff;
+                border: 0px;
+
+                option {
+                    background-color: #262626;
+                    padding: 3px;
+                }
+            }
         }
 
-        .go-first {
-            background-image: url(../../imgs/chevron2.svg);
-            transform: rotateY(180deg);
-            background-size: 12px 12px;
-        }
+        .paginator {
+            width: 100%;
+            background-color: #262626;
+            min-height: 48px;
+            margin: 0px !important;
+            border-top: 0px;
+            padding: 0 !important;
+            padding-left: 15px !important;
+            border-left: 1px solid #333;
 
-        .go-previous {
-            background-image: url(../../imgs/chevron.svg);
-            transform: rotate(90deg);
-        }
+            .pagination-text, .summary {
+                font-size: 14px;
+            }
 
-        .go-next {
-            background-image: url(../../imgs/chevron.svg);
-            transform: rotate(-90deg);
-        }
+            .go-first {
+                background-image: url(../../imgs/chevron2.svg);
+                transform: rotateY(180deg);
+                background-size: 12px 12px;
+                cursor: pointer;
+            }
 
-        .go-last {
-            background-image: url(../../imgs/chevron2.svg);
-            transform: rotateY(0deg);
-            background-size: 12px 12px;
+            .go-previous {
+                background-image: url(../../imgs/chevron.svg);
+                transform: rotate(90deg);
+                cursor: pointer;
+            }
+
+            .go-next {
+                background-image: url(../../imgs/chevron.svg);
+                transform: rotate(-90deg);
+                cursor: pointer;
+            }
+
+            .go-last {
+                background-image: url(../../imgs/chevron2.svg);
+                transform: rotateY(0deg);
+                background-size: 12px 12px;
+                cursor: pointer;
+            }
         }
     }
 }
